@@ -4,12 +4,25 @@
 #include <stdbool.h>
 #include <stddef.h>
 
+/**
+ * @class Vector
+ * @brief Vector class. Vectors are more lightweight than Matrixes. It might be
+ * relevant to use them if you are certain you will only perform vector-wise
+ * operations. Otherwise use a Matrix.
+ *
+ */
 typedef struct Vector {
   size_t size;
   double_t *data;
   bool valid;
 } Vector;
 
+/**
+ * @class VectorResult
+ * @brief Container for a Vector result. If initialized as invalid, the
+ * contained vector is guaranteed to be empty (NULL data pointer, 0-size,
+ * invalid).
+ */
 typedef struct VectorResult {
   Vector vec;
   bool valid;

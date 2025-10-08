@@ -3,6 +3,12 @@
 #include <math.h>
 #include <stdbool.h>
 
+/**
+ * @class ScalarResult
+ * @brief Container for a scalar result. If initialized as invalid, the
+ * contained scalar is guaranteed to be zero-initialized.
+ *
+ */
 typedef struct ScalarResult {
   double_t scalar;
   bool valid;

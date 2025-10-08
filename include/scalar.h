@@ -1,0 +1,23 @@
+#ifndef ADEQ_MATH_SCALAR
+#define ADEQ_MATH_SCALAR
+#include <math.h>
+#include <stdbool.h>
+
+typedef struct ScalarResult {
+  double_t scalar;
+  bool valid;
+} ScalarResult;
+
+/**
+ * @brief Create a valid ScalarResult instance.
+ * @return valid ScalarResult
+ */
+ScalarResult valid_sca_res(double_t scalar);
+
+/**
+ * @brief Create an invalid ScalarResult instance.
+ * @return invalid ScalarResult
+ */
+ScalarResult invalid_sca_res();
+
+#endif // !ADEQ_MATH_SCALAR

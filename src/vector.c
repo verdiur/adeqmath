@@ -3,7 +3,8 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
-Vector new_vec(size_t size, double_t val) {
+
+Vector new_vec(size_t size, Scalar val) {
   Vector vec;
   vec.size = size;
   vec.data = calloc(val, size * sizeof(double_t));
@@ -12,20 +13,20 @@ Vector new_vec(size_t size, double_t val) {
 }
 
 
-VectorResult valid_vec_res(Vector vec) {
-  VectorResult ret = {vec, true};
-  return ret;
-}
-
-
-VectorResult invalid_vec_res() {
+Vector empty_vec() {
   Vector vec;
   vec.size = 0;
   vec.data = NULL;
   vec.valid = false;
+  return vec;
+}
 
-  VectorResult ret = {vec, false};
-  return ret;
+
+bool is_vec_empty(Vector *vec) {
+  bool size_check = (vec->size == 0);
+  bool data_check = (vec->data == NULL);
+  bool valid_check = (!vec->valid);
+  return size_check && data_check && valid_check;
 }
 
 

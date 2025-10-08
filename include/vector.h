@@ -1,6 +1,6 @@
-#ifndef ADEQ_MATH_VECTOR
-#define ADEQ_MATH_VECTOR
-#include <math.h>
+#ifndef ADEQ_MATH_VECTOR_H
+#define ADEQ_MATH_VECTOR_H
+#include "scalar.h"
 #include <stdbool.h>
 #include <stddef.h>
 
@@ -13,20 +13,9 @@
  */
 typedef struct Vector {
   size_t size;
-  double_t *data;
+  Scalar *data;
   bool valid;
 } Vector;
-
-/**
- * @class VectorResult
- * @brief Container for a Vector result. If initialized as invalid, the
- * contained vector is guaranteed to be empty (NULL data pointer, 0-size,
- * invalid).
- */
-typedef struct VectorResult {
-  Vector vec;
-  bool valid;
-} VectorResult;
 
 /**
  * @brief Init a new filled vector
@@ -34,21 +23,22 @@ typedef struct VectorResult {
  * @param val
  * @return Vector
  */
-Vector new_vec(size_t size, double_t val);
+Vector new_vec(size_t size, Scalar val);
 
 /**
- * @brief Create a valid VectorResult. This is equivalent to {vec, true}.
+ * @brief Create an empty vector. Empty vectors are invalid, and can be used as
+ * a fallback return value.
+ *
+ * @return empty Vector instance
+ */
+Vector empty_vec();
+
+/**
+ * @brief Check if a vector is empty. This checks all of the fields.
  * @param vec
- * @return valid VectorResult
+ * @return true if Vector is empty
  */
-VectorResult valid_vec_res(Vector vec);
-
-/**
- * @brief Create an invalid VectorResult instance. Useful in cases where an
- * operation is forbidden.
- * @return invalid VectorResult
- */
-VectorResult invalid_vec_res();
+bool is_vec_empty(Vector *vec);
 
 /**
  * @brief Checks if a Vector instance is valid
@@ -64,4 +54,4 @@ bool is_vec_valid(Vector *vec);
  */
 bool free_vec(Vector *vec);
 
-#endif // !ADEQ_MATH_VECTOR
+#endif // !ADEQ_MATH_VECTOR_H

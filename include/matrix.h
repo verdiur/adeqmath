@@ -1,6 +1,6 @@
 /**
  * @file matrix.h
- * @brief Matrix struct and associated unary operations
+ * @brief Matrix struct
  */
 
 #ifndef ADEQ_MATH_MATRIX_H
@@ -43,14 +43,14 @@ Matrix empty_mat();
  * @param mat
  * @return true if Matrix is empty
  */
-bool is_mat_empty(Matrix *mat);
+bool is_mat_empty(const Matrix *mat);
 
 /**
  * @brief Check if a Matrix instance is valid
  * @param mat
  * @return true if ptr is valid and Vector is valid
  */
-bool is_mat_valid(Matrix *mat);
+bool is_mat_valid(const Matrix *mat);
 
 /**
  * @brief Free memory allocated for a Matrix instance
@@ -59,16 +59,6 @@ bool is_mat_valid(Matrix *mat);
  */
 bool free_mat(Matrix *mat);
 
-/**
- * @brief Get value of element of Matrix at position (x, y). This function skips
- * the usual safe checks. Consider useing mat_value() for a safe version.
- *
- * @param mat
- * @param x
- * @param y
- * @return value of element
- */
-Scalar mat_value_unsafe(Matrix *mat, size_t x, size_t y);
 
 /**
  * @brief Get value of element of Matrix at position (x, y)
@@ -77,18 +67,9 @@ Scalar mat_value_unsafe(Matrix *mat, size_t x, size_t y);
  * @param y
  * @return value of element
  */
-Scalar mat_value(Matrix *mat, size_t x, size_t y);
-
-/**
- * @brief Get pointer to element of Matrix at position (x, y). This function
- * skips the usual safe checks. Consider using mat_at() for a safe version.
- *
- * @param mat
- * @param x
- * @param y
- * @return ptr to element
- */
-Scalar *mat_at_unsafe(Matrix *mat, size_t x, size_t y);
+Scalar mat_value(const Matrix *mat, size_t x, size_t y);
+// @brief unsafe mat_value()
+Scalar unsafe_mat_value(const Matrix *mat, size_t x, size_t y);
 
 /**
  * @brief Get pointer to element of Matrix at position (x, y)
@@ -97,8 +78,8 @@ Scalar *mat_at_unsafe(Matrix *mat, size_t x, size_t y);
  * @param y
  * @return ptr to element
  */
-Scalar *mat_at(Matrix *mat, size_t x, size_t y);
-
-/* UNARY OPERATIONS ***********************************************************/
+Scalar *mat_at(const Matrix *mat, size_t x, size_t y);
+// @brief unsafe mat_at()
+Scalar *unsafe_mat_at(const Matrix *mat, size_t x, size_t y);
 
 #endif // !ADEQ_MATH_MATRIX_H

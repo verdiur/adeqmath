@@ -7,8 +7,8 @@
 #define ADEQ_MATH_DEFINES_H
 
 // this is only for external definition of what the Scalar type expands to. You
-// should most likely use the Scalar typedef instead.
-// WARNING: ADEQ_SCALAR cannot be expanded into an integer type.
+// should most likely use the Scalar typedef instead. Supported types:
+// float, double
 #ifndef ADEQ_SCALAR
 #define ADEQ_SCALAR float
 #endif // !ADEQ_SCALAR_TYPE

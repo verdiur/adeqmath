@@ -7,8 +7,10 @@ project(adeqmath
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 add_library(${PROJECT_NAME}
-  src/op.c
+  src/matrix.c
+  src/scalar_utils.c
   src/vector.c
+  src/vector_op.c
 )
 
 target_compile_features(${PROJECT_NAME} PUBLIC c_std_99)

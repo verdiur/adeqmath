@@ -1,13 +1,14 @@
 #include "vector.h"
 #include <math.h>
 #include <stdbool.h>
+#include <stddef.h>
 #include <stdlib.h>
 
 
-Vector new_vec(size_t size, Scalar val) {
+Vector new_vec(size_t size) {
   Vector vec;
   vec.size = size;
-  vec.data = calloc(val, size * sizeof(double_t));
+  vec.data = calloc(size, sizeof(double_t));
   vec.valid = vec.data;
   return vec;
 }

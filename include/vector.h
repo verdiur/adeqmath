@@ -23,7 +23,7 @@ typedef struct Vector {
  * @param val
  * @return Vector
  */
-Vector new_vec(size_t size, Scalar val);
+Vector new_vec(size_t size);
 
 /**
  * @brief Create an empty vector. Empty vectors are invalid, and can be used as

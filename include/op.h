@@ -7,10 +7,16 @@
 typedef struct Vector Vector;
 typedef struct Matrix Matrix; // TODO:
 
+/* SCALE **********************************************************************/
+
 Vector scalesv(Scalar fac, Vector *vec);
 Matrix scalesm(Scalar fac, Matrix *mat); // TODO:
 
+/* DOT PRODUCT ****************************************************************/
+
 Scalar dotvv(Vector *lhs, Vector *rhs);
+
+/* CROSS PRODUCT **************************************************************/
 
 Vector crossvv(Vector *lhs, Vector *rhs);
 

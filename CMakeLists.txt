@@ -8,7 +8,6 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 add_library(${PROJECT_NAME}
   src/op.c
-  src/scalar.c
   src/vector.c
 )
 
